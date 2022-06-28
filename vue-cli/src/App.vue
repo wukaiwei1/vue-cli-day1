@@ -1,19 +1,33 @@
 <template>
   <div>
-    <a v-bind:href="url">点我去百度</a>
-    <img v-bind:src="imgUrl" alt="" />
+    <p>你要购买的商品数量:{{ count }}</p>
+
+    <button v-on:click="add">+1</button>
+
+    <button v-on:click="addFn(5)">+5</button>
+
+    <button v-on:click="revoer">-1</button>
   </div>
 </template>
 
 <script>
-import imgUrl from "./assets/01.jpg";
 export default {
   name: "App",
   data() {
     return {
-      url: "https://www.baidu.com/",
-      imgUrl,
+      count: 0,
     };
+  },
+  methods: {
+    add() {
+      this.count++;
+    },
+    addFn(val) {
+      this.count += val;
+    },
+    revoer() {
+      this.count--;
+    },
   },
 };
 </script>
