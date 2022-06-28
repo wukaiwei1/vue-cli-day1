@@ -1,12 +1,8 @@
 <template>
   <div>
-    <p>你要购买的商品数量:{{ count }}</p>
+    <a @click="add" href="https://www.baidu.com/">阻止跳转百度</a>
 
-    <button v-on:click="add">+1</button>
-
-    <button v-on:click="addFn(5)">+5</button>
-
-    <button v-on:click="revoer">-1</button>
+    <button @click="addFn(5, $event)">事件对象</button>
   </div>
 </template>
 
@@ -19,14 +15,11 @@ export default {
     };
   },
   methods: {
-    add() {
-      this.count++;
+    add(e) {
+      e.preventDefault();
     },
-    addFn(val) {
-      this.count += val;
-    },
-    revoer() {
-      this.count--;
+    addFn(val, e) {
+      e.preventDefault();
     },
   },
 };
