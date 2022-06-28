@@ -1,21 +1,18 @@
 <template>
   <div>
-    <h2>{{ msg }}</h2>
-    <h2>{{ obj.uname }}</h2>
-    <h2>{{ obj.age >= 18 ? "你已经成年了" : "你还未成年" }}</h2>
+    <a v-bind:href="url">点我去百度</a>
+    <img v-bind:src="imgUrl" alt="" />
   </div>
 </template>
 
 <script>
+import imgUrl from "./assets/01.jpg";
 export default {
   name: "App",
   data() {
     return {
-      msg: "张三",
-      obj: {
-        uname: "法外狂徒",
-        age: 20,
-      },
+      url: "https://www.baidu.com/",
+      imgUrl,
     };
   },
 };
